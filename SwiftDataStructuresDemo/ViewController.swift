@@ -1,10 +1,4 @@
 
-/* 
-
-Practical use examples of data structures go here
-
-
-*/
 
 import Cocoa
 
@@ -13,11 +7,23 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setupSibTree()
+        basicDemos()
+        practicalExamples()
+    }
+
+    func basicDemos() ->Void {
+
+        self.setupSibTreeAndPrint()
+    }
+
+    func practicalExamples() ->Void {
+
+        // Practical examples should take advantage of specific properties of a data structure
+
     }
 
 
-    func setupSibTree() ->Void {
+    func setupSibTreeAndPrint() ->Void {
 
         var rootNode:SibTreeNode = SibTreeNode(data: "/")
         var index:SibTreeNode = SibTreeNode(data: "index.hml")
@@ -25,7 +31,7 @@ class ViewController: NSViewController {
         var labs:SibTreeNode = SibTreeNode(data: "labs")
         var lectures:SibTreeNode = SibTreeNode(data: "lectures")
 
-        var tree:SibTree = SibTree(size: 10, root: rootNode)
+        var tree:SibTree = SibTree(root: rootNode)
 
 
         rootNode.firstChild = index
@@ -64,9 +70,8 @@ class ViewController: NSViewController {
         hw2.parent = hw
         hw2.nextSibling = nil
 
-    }
+        print(tree.description)
 
-    func traverseSibTree() ->Void {
     }
 
 }

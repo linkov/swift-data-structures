@@ -3,14 +3,13 @@
 How to represent a rooted tree (think website files' hierarchy) as a data structure for computers
 =================================================================================================
 
---- Simplest approach ---
+* Simplest approach *
 - Each node has 3 references:
 1) item stored in the node
 2) parent of the node
 3) list of all children of the node
 
---- More interesting approach ---
-
+* More interesting approach *
 Pro: list data structure is built in to the nodes of the tree so this one uses less memory
 Contra: does not reuse list code (?: clarify)
 
@@ -30,6 +29,9 @@ Types of traversals
 
 - Preoder traversal
 Visit each node, then recursively visit it's children left to right. Root visited first (see preoder() )
+Each node visited only once, so a preorder traversal takes O(n) time, where n is the number of nodes in the tree
+
+- Postorder traversal
 
 
 Resorces:
@@ -42,21 +44,53 @@ http://codingforinterviews.com/
 
 import Foundation
 
-class SibTree {
+class SibTree:NSObject {
     var root:SibTreeNode!
-    var size:Int! // number of nodes in a tree
 
-    convenience init(size: Int, root: SibTreeNode) {
+    override var description: String {
+        return self.printTreePreorder(self.root, depth: 0)
+    }
+
+    convenience init(root: SibTreeNode) {
 
         self.init()
-        self.size = size
         self.root = root
+    }
+
+    func printTreePreorder(node :SibTreeNode?,depth: Int) ->String {
+
+        if (node == nil) {
+            return ""
+        }
+
+        var str:String = ""
+
+        for i in 0...depth {
+            str = str + "  ";
+        }
+
+        var nodeDataStr:String = node?.dataObject as String
+        var preorderFirstChild:String = ""
+        var preorderNextSib:String = ""
+
+        if (node?.firstChild != nil) {
+
+            preorderFirstChild = printTreePreorder(node!.firstChild!,depth: depth + 1)
+        }
+
+        if (node?.nextSibling != nil) {
+
+            preorderNextSib = printTreePreorder(node!.nextSibling!,depth: depth)
+        }
+
+        return "\(str)\(nodeDataStr)\n\(preorderFirstChild)\(preorderNextSib)"
+        
     }
     
 }
 
-class SibTreeNode {
-    var dataObject:AnyObject?;
+class SibTreeNode:NSObject {
+    var dataObject:AnyObject!;
     var parent:SibTreeNode?;
     var firstChild:SibTreeNode?; // one of the children of this node
     var nextSibling:SibTreeNode?; // points to a node that is at the same depth (same level) as this node
@@ -75,7 +109,7 @@ class SibTreeNode {
         }
 
         if((self.nextSibling) != nil) {
-            self.nextSibling!.preoder()
+            self.nextSibling!.preoder() // when we are done with children lets visit siblings
         }
 
     }
@@ -84,5 +118,5 @@ class SibTreeNode {
     func visit() ->Void {
 
     }
-    
+
 }
