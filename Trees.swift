@@ -28,11 +28,23 @@ Traversal: a manner of visiting each tree node in a tree once
 Types of traversals
 
 - Preoder traversal
-Visit each node, then recursively visit it's children left to right. Root visited first (see preoder() )
+Visits each node, then recursively visit it's children left to right. Root visited first (see preoder() )
 Each node visited only once, so a preorder traversal takes O(n) time, where n is the number of nodes in the tree
 
 - Postorder traversal
+Visits each node's children (left to right) before the node itself (see postorder() ). Deepest child visited first.
+Postorder is efficient for, for example, getting the sum of all subnodes b/c to do this you better start from the bottom and get the info on subnodes and them summing up on their parent level
+Postorder traversal takes O(n) time, where n is the number of nodes in the tree
 
+
+- Level order traversal
+Visits the root. Then visit all depth 1 nodes from left to right, then visit all depth2 nodes, etc. ...
+Implementation: 
+1) take a queue (a list in which you add items to the end and take items off the top), which initially contains only the root.
+2) Repeat until queue is empty:
+- deque a node from the front of the list
+- visit the dequed node
+- enque it's children from left to right at the end of the list
 
 Resorces:
 ========
@@ -110,6 +122,20 @@ class SibTreeNode:NSObject {
 
         if((self.nextSibling) != nil) {
             self.nextSibling!.preoder() // when we are done with children lets visit siblings
+        }
+
+    }
+
+    func postorder()->Void {
+
+        if((self.firstChild) != nil) {
+           self.firstChild?.postorder()
+        }
+
+        self.visit()
+
+        if((self.nextSibling) != nil) {
+            self.nextSibling!.postorder()
         }
 
     }
