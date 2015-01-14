@@ -15,6 +15,7 @@
 		F1ECEF641A639C7A00AF7DA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1ECEF521A639BF700AF7DA2 /* Main.storyboard */; };
 		F1ECEF651A639C8500AF7DA2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1ECEF561A639BF700AF7DA2 /* Info.plist */; };
 		F1ECEF671A63F02000AF7DA2 /* Queues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECEF661A63F02000AF7DA2 /* Queues.swift */; };
+		F1ECEF691A66B41200AF7DA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECEF681A66B41200AF7DA2 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		F1ECEF601A639C1200AF7DA2 /* HashTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HashTable.swift; sourceTree = "<group>"; };
 		F1ECEF611A639C1200AF7DA2 /* Trees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trees.swift; sourceTree = "<group>"; };
 		F1ECEF661A63F02000AF7DA2 /* Queues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queues.swift; sourceTree = "<group>"; };
+		F1ECEF681A66B41200AF7DA2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 				F1ECEF601A639C1200AF7DA2 /* HashTable.swift */,
 				F1ECEF611A639C1200AF7DA2 /* Trees.swift */,
 				F1ECEF661A63F02000AF7DA2 /* Queues.swift */,
+				F1ECEF681A66B41200AF7DA2 /* Extensions.swift */,
 				F1ECEF501A639BF700AF7DA2 /* SwiftDataStructuresDemo */,
 				F1ECEF291A63885100AF7DA2 /* Products */,
 			);
@@ -143,6 +146,7 @@
 			files = (
 				F1ECEF5F1A639BF700AF7DA2 /* ViewController.swift in Sources */,
 				F1ECEF621A639C1200AF7DA2 /* HashTable.swift in Sources */,
+				F1ECEF691A66B41200AF7DA2 /* Extensions.swift in Sources */,
 				F1ECEF671A63F02000AF7DA2 /* Queues.swift in Sources */,
 				F1ECEF631A639C1200AF7DA2 /* Trees.swift in Sources */,
 				F1ECEF591A639BF700AF7DA2 /* AppDelegate.swift in Sources */,

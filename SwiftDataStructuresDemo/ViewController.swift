@@ -13,9 +13,10 @@ class ViewController: NSViewController {
 
     func basicDemos() ->Void {
 
-        self.setupSibTreeAndPrint()
-        self.setupHashTableAndPrint()
-        self.setupBinaryExpressionTreeAndPrint()
+        //self.setupSibTreeAndPrint()
+        //self.setupHashTableAndPrint()
+        //self.setupBinaryExpressionTreeAndPrint()
+        self.setupBinarySearchTreeAndPrint()
     }
 
     func practicalExamples() ->Void {
@@ -26,44 +27,53 @@ class ViewController: NSViewController {
 
     func setupBinarySearchTreeAndPrint() ->Void {
 
-        var bstreeRoot:BinaryTreeNode = BinaryTreeNode(data: "18")
-        var node12:BinaryTreeNode = BinaryTreeNode(data: "12")
-        var bstreeDivideNode:BinaryTreeNode = BinaryTreeNode(data: "25")
+        treeObject(objectKey: 12)
+        var node18:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 18))
+        var node12:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 12))
+        var node25:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 25))
 
-        var snode6:BinaryTreeNode = BinaryTreeNode(data: "6")
-        var snode5:BinaryTreeNode = BinaryTreeNode(data: "5")
-        var snode9:BinaryTreeNode = BinaryTreeNode(data: "9")
-        var snode_3:BinaryTreeNode = BinaryTreeNode(data: "3")
-
-
-        bstreeRoot.leftChild = node12
-        bstreeRoot.rightChild = bstreeDivideNode
-
-        node12.parent = bstreeRoot
-        bstreeDivideNode.parent = bstreeRoot
+        var node4:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 4))
+        var node15:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 15))
+        var node23:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 23))
+        var node30:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 30))
 
 
+        node18.leftChild = node12
+        node18.rightChild = node25
 
-        bstreeDivideNode.leftChild = snode9
-        bstreeDivideNode.rightChild = snode_3
-
-        snode_3.parent = bstreeDivideNode
-        snode9.parent = bstreeDivideNode
-
-
-        node12.leftChild = snode6
-        node12.rightChild = snode5
-
-        snode6.parent = node12
-        snode5.parent = node12
+        node12.parent = node18
+        node25.parent = node18
 
 
-        let bstree:BinaryTree = BinaryTree(root: bstreeRoot)
+
+        node25.leftChild = node23
+        node25.rightChild = node30
+
+        node23.parent = node25
+        node30.parent = node25
+
+
+        node12.leftChild = node4
+        node12.rightChild = node15
+
+        node4.parent = node12
+        node15.parent = node12
+
+
+        let bstree:BinaryTree = BinaryTree(root: node18)
         
         var rt:BinaryTreeNode = bstree.root as BinaryTreeNode
-        rt.inorder()
+       // rt.inorder()
+       // rt.isBST()
+
+       println(bstree.isBST())
 
     }
+
+//    func isBST(rootNode :BinaryTreeNode) ->Bool {
+//        let arrayFromTreeKeys:Array =rootNode.inorder()
+//        filteredArray = moneyArray.filter({$0 > 30})
+//    }
 
 
     func setupBinaryExpressionTreeAndPrint() ->Void {

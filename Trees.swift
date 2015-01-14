@@ -100,6 +100,12 @@ import Foundation
 class treeObject :NSObject {
     var key:Int?
     var value:AnyObject?
+
+    convenience init(objectKey: Int) {
+
+        self.init()
+        self.key = objectKey
+    }
 }
 
 class SDWTree: NSObject {
@@ -114,12 +120,19 @@ class SDWTree: NSObject {
 }
 
 class SDWTreeNode: NSObject {
+    var entry:treeObject?
     var dataObject:AnyObject?
     var parent:SDWTreeNode?
 
     convenience init(data: AnyObject) {
         self.init()
         self.dataObject = data
+    }
+
+
+    convenience init(treeObj: treeObject) {
+        self.init()
+        self.entry = treeObj
     }
 
     /* visit means doing anything with the node, like simply printing data or doing compute */
@@ -132,6 +145,27 @@ class SDWTreeNode: NSObject {
 
 class BinaryTree: SDWTree {
 
+    var arr:[Int] = []
+
+    func isBST() ->Bool {
+
+        return self.toArray().isSorted(<)
+    }
+
+    func toArray() ->Array<Int> {
+
+        addNode(self.root as? BinaryTreeNode)
+        return arr
+    }
+
+    func addNode(node: BinaryTreeNode?) ->Void {
+        if (node != nil) {
+            addNode(node?.leftChild);
+            arr.append(node!.entry!.key!)
+            addNode(node?.rightChild)
+
+        }
+    }
 
 //    func isValidBST(node: BinaryTreeNode) ->Bool {
 //
@@ -223,27 +257,49 @@ class BinarySearchTree :SDWTree {
 
 class BinaryTreeNode: SDWTreeNode {
 
-    var entry:treeObject?
     var leftChild:BinaryTreeNode?
     var rightChild:BinaryTreeNode?
-
+//    var arr:[String] = []
+//
+//    func isBST() ->String {
+//
+//        var str:String?
+//
+//        if((self.leftChild) != nil) {
+//
+//            self.leftChild!.isBST()
+//        }
+//
+//        str = self.dataObject as? String
+//
+//        if((self.rightChild) != nil) {
+//
+//            self.rightChild!.isBST()
+//        }
+//
+//
+//        return str!
+//    }
 
     func inorder()->Void {
 
+
         if((self.leftChild) != nil) {
+
             self.leftChild!.inorder()
         }
 
         self.visit()
 
         if((self.rightChild) != nil) {
+
             self.rightChild!.inorder()
         }
 
     }
 
     override func visit() ->Void {
-        print(dataObject!)
+        print("\(dataObject!) ->")
     }
 
 }
