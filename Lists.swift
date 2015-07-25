@@ -60,7 +60,21 @@ Doubly Linked Lists (DLists)
 ============================
 
 Inserting or deleting at front of the list is easy, how about inserting / deleting at the end of a list?
-You don't have pointer to the end of the list so you have to start at the head and walk all the way to the end
+You don't have pointer to the end of the list so you have to start at the head and walk all the way to the end.
+With DList you can insert and delete items at both beginning and end in constant time
+
+Let's introduce a special node to a list that doesn't represent any item, let's call it sentinel.
+DList v2 will be doubly linked circurlarly linked list, sentinel will represent both head and tail of the list
+
+
+Dlist invariants with sentinel:
+- For every Dlist d, d.head != nil b/c there is always a sentinel node
+- For any DListNode x, x.next 1= nil and x.prev != nil
+- If x.next == y, then y.prev == x
+- If x.prev == y, then y.next = x
+- Dlist size is always the number of DlistNodes in the list not counting the sentinel
+- Emply Dlist' sentinels next and prev point to itself
+
 
 
 Resorces:
@@ -144,6 +158,19 @@ class SDWDListNode :NSObject {
 
 class SDWDList :NSObject {
     var head:SDWDListNode? = nil
-    var tail:SDWListNode? = nil
+    var tail:SDWDListNode? = nil
     var size: Int = 0
+
+    func deleteBack() ->Void { // if there are at least 2 items in the list
+
+        self.tail?.prev?.next = nil
+        self.tail = tail?.prev
+    }
+}
+
+class SDWDListV2 :NSObject {
+    var head:SDWDListNode? = nil// sentinel: prev point to tail and next points to head, b/c prev of head will point to sentinenel and next of tail will point to sentinel we don't need to nil out those fields in first / last nodes
+    var size: Int = 0
+
+
 }
