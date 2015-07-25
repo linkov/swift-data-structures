@@ -76,11 +76,11 @@ class SDWHashTable {
         if let existingName = personName {
 
             var summOfCharacterCodes:Int = 0
-            let characterCount = existingName.utf16Count
+            let characterCount = existingName.utf16.count
             let charArr:Array = existingName.cStringUsingEncoding(NSUTF8StringEncoding)!
 
             for charNumber in charArr {
-                var num:NSNumber = NSNumber(char: charNumber)
+                let num:NSNumber = NSNumber(char: charNumber)
                 summOfCharacterCodes +=  num.integerValue
             }
             

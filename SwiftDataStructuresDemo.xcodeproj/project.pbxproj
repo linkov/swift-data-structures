@@ -16,6 +16,7 @@
 		F1ECEF651A639C8500AF7DA2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1ECEF561A639BF700AF7DA2 /* Info.plist */; };
 		F1ECEF671A63F02000AF7DA2 /* Queues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECEF661A63F02000AF7DA2 /* Queues.swift */; };
 		F1ECEF691A66B41200AF7DA2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECEF681A66B41200AF7DA2 /* Extensions.swift */; };
+		F1ECF0251A702BD100AF7DA2 /* Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ECF0241A702BD100AF7DA2 /* Lists.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		F1ECEF611A639C1200AF7DA2 /* Trees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trees.swift; sourceTree = "<group>"; };
 		F1ECEF661A63F02000AF7DA2 /* Queues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queues.swift; sourceTree = "<group>"; };
 		F1ECEF681A66B41200AF7DA2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F1ECF0241A702BD100AF7DA2 /* Lists.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 				F1ECEF611A639C1200AF7DA2 /* Trees.swift */,
 				F1ECEF661A63F02000AF7DA2 /* Queues.swift */,
 				F1ECEF681A66B41200AF7DA2 /* Extensions.swift */,
+				F1ECF0241A702BD100AF7DA2 /* Lists.swift */,
 				F1ECEF501A639BF700AF7DA2 /* SwiftDataStructuresDemo */,
 				F1ECEF291A63885100AF7DA2 /* Products */,
 			);
@@ -100,6 +103,8 @@
 		F1ECEF201A63885100AF7DA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = SDWR;
 				TargetAttributes = {
@@ -146,6 +151,7 @@
 			files = (
 				F1ECEF5F1A639BF700AF7DA2 /* ViewController.swift in Sources */,
 				F1ECEF621A639C1200AF7DA2 /* HashTable.swift in Sources */,
+				F1ECF0251A702BD100AF7DA2 /* Lists.swift in Sources */,
 				F1ECEF691A66B41200AF7DA2 /* Extensions.swift in Sources */,
 				F1ECEF671A63F02000AF7DA2 /* Queues.swift in Sources */,
 				F1ECEF631A639C1200AF7DA2 /* Trees.swift in Sources */,

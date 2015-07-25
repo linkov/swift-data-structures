@@ -9,7 +9,7 @@
 import Foundation
 
 extension Array {
-    func isSorted(isOrderedBefore: (T, T) -> Bool) -> Bool {
+    func isSorted(isOrderedBefore: (Element, Element) -> Bool) -> Bool {
         for i in 1..<self.count {
             if !isOrderedBefore(self[i-1], self[i]) {
                 return false

@@ -16,7 +16,8 @@ class ViewController: NSViewController {
         //self.setupSibTreeAndPrint()
         //self.setupHashTableAndPrint()
         //self.setupBinaryExpressionTreeAndPrint()
-        self.setupBinarySearchTreeAndPrint()
+     //   self.setupBinarySearchTreeAndPrint()
+        self.setupLinkedListAndPrint()
     }
 
     func practicalExamples() ->Void {
@@ -25,17 +26,57 @@ class ViewController: NSViewController {
 
     }
 
+    func setupLinkedListAndPrint() ->Void {
+
+//        let l1:SDWListNode = SDWListNode()
+//        l1.item = "seven"
+//
+//        let l2:SDWListNode = SDWListNode()
+//        l2.item = "zero"
+//
+//        let l3:SDWListNode = SDWListNode()
+//        l3.item = "six"
+//
+//        l1.next = l2
+//        l2.next = l3
+//        l3.next = nil
+
+        let l1:SDWListNode = SDWListNode(data: "seven", next: SDWListNode(data: "zero", next: SDWListNode( data: "six")    )    )
+
+        var l1ref = l1
+
+        let moreNumbers = ["one", "eight", "five"]
+
+        for numberString in moreNumbers {
+
+            l1ref.insertAfter(numberString)
+            l1ref = l1ref.next!
+        }
+
+        print(l1.nth(1)?.item)
+
+        let l2:SDWListNode = SDWListNode(data: "seven",next:nil)
+        let l3:SDWListNode = SDWListNode(data: "nine",next:nil)
+
+        let list:SDWList = SDWList()
+        list.insertFront(l2)
+        list.insertFront(l3)
+
+        print(list.size)
+
+    }
+
     func setupBinarySearchTreeAndPrint() ->Void {
 
         treeObject(objectKey: 12)
-        var node18:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 18))
-        var node12:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 12))
-        var node25:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 25))
+        let node18:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 18))
+        let node12:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 12))
+        let node25:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 25))
 
-        var node4:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 4))
-        var node15:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 15))
-        var node23:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 23))
-        var node30:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 30))
+        let node4:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 4))
+        let node15:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 15))
+        let node23:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 23))
+        let node30:BinaryTreeNode = BinaryTreeNode(treeObj:  treeObject(objectKey: 30))
 
 
         node18.leftChild = node12
@@ -62,11 +103,11 @@ class ViewController: NSViewController {
 
         let bstree:BinaryTree = BinaryTree(root: node18)
         
-        var rt:BinaryTreeNode = bstree.root as BinaryTreeNode
+      //  var rt:BinaryTreeNode = bstree.root as! BinaryTreeNode
        // rt.inorder()
        // rt.isBST()
 
-       println(bstree.isBST())
+       print(bstree)
 
     }
 
@@ -78,14 +119,14 @@ class ViewController: NSViewController {
 
     func setupBinaryExpressionTreeAndPrint() ->Void {
 
-        var btreeRoot:BinaryTreeNode = BinaryTreeNode(data: "+")
-        var btreeSubstractNode:BinaryTreeNode = BinaryTreeNode(data: "-")
-        var btreeDivideNode:BinaryTreeNode = BinaryTreeNode(data: "/")
+        let btreeRoot:BinaryTreeNode = BinaryTreeNode(data: "+")
+        let btreeSubstractNode:BinaryTreeNode = BinaryTreeNode(data: "-")
+        let btreeDivideNode:BinaryTreeNode = BinaryTreeNode(data: "/")
 
-        var node6:BinaryTreeNode = BinaryTreeNode(data: "6")
-        var node5:BinaryTreeNode = BinaryTreeNode(data: "5")
-        var node9:BinaryTreeNode = BinaryTreeNode(data: "9")
-        var node_3:BinaryTreeNode = BinaryTreeNode(data: "3")
+        let node6:BinaryTreeNode = BinaryTreeNode(data: "6")
+        let node5:BinaryTreeNode = BinaryTreeNode(data: "5")
+        let node9:BinaryTreeNode = BinaryTreeNode(data: "9")
+        let node_3:BinaryTreeNode = BinaryTreeNode(data: "3")
 
 
         btreeRoot.leftChild = btreeSubstractNode
@@ -112,7 +153,7 @@ class ViewController: NSViewController {
 
         let btree:BinaryTree = BinaryTree(root: btreeRoot)
 
-        var rt:BinaryTreeNode = btree.root as BinaryTreeNode
+        let rt:BinaryTreeNode = btree.root as! BinaryTreeNode
         rt.inorder()
 
     }
@@ -129,20 +170,20 @@ class ViewController: NSViewController {
         htable.removeObject("Steve");
 
 
-        println(NSString(format:"contains Steve = %@", htable.containsObject("Steve")) );
-        println(NSString(format:"contains Jerry = %@", htable.containsObject("Jerry")) );
-        println(NSString(format:"contains Notes = %@", htable.containsObject("Notes")) );
+        print(NSString(format:"contains Steve = %@", htable.containsObject("Steve")) );
+        print(NSString(format:"contains Jerry = %@", htable.containsObject("Jerry")) );
+        print(NSString(format:"contains Notes = %@", htable.containsObject("Notes")) );
     }
 
     func setupSibTreeAndPrint() ->Void {
 
-        var rootNode:SibTreeNode = SibTreeNode(data: "/")
-        var index:SibTreeNode = SibTreeNode(data: "index.hml")
-        var hw:SibTreeNode = SibTreeNode(data: "hw")
-        var labs:SibTreeNode = SibTreeNode(data: "labs")
-        var lectures:SibTreeNode = SibTreeNode(data: "lectures")
+        let rootNode:SibTreeNode = SibTreeNode(data: "/")
+        let index:SibTreeNode = SibTreeNode(data: "index.hml")
+        let hw:SibTreeNode = SibTreeNode(data: "hw")
+        let labs:SibTreeNode = SibTreeNode(data: "labs")
+        let lectures:SibTreeNode = SibTreeNode(data: "lectures")
 
-        var tree:SibTree = SibTree(root: rootNode)
+        let tree:SibTree = SibTree(root: rootNode)
 
 
         rootNode.firstChild = index
@@ -162,10 +203,10 @@ class ViewController: NSViewController {
 
 
 
-        var lab1:SibTreeNode = SibTreeNode(data: "lab1")
-        var lab2:SibTreeNode = SibTreeNode(data: "lab2")
-        var hw1:SibTreeNode = SibTreeNode(data: "hw1")
-        var hw2:SibTreeNode = SibTreeNode(data: "hw2")
+        let lab1:SibTreeNode = SibTreeNode(data: "lab1")
+        let lab2:SibTreeNode = SibTreeNode(data: "lab2")
+        let hw1:SibTreeNode = SibTreeNode(data: "hw1")
+        let hw2:SibTreeNode = SibTreeNode(data: "hw2")
 
         hw.firstChild = hw1
         labs.firstChild = lab1
@@ -181,7 +222,7 @@ class ViewController: NSViewController {
         hw2.parent = hw
         hw2.nextSibling = nil
 
-        print(tree.description)
+        print(tree.description, appendNewline: false)
 
     }
 

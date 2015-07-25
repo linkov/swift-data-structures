@@ -145,27 +145,27 @@ class SDWTreeNode: NSObject {
 
 class BinaryTree: SDWTree {
 
-    var arr:[Int] = []
-
-    func isBST() ->Bool {
-
-        return self.toArray().isSorted(<)
-    }
-
-    func toArray() ->Array<Int> {
-
-        addNode(self.root as? BinaryTreeNode)
-        return arr
-    }
-
-    func addNode(node: BinaryTreeNode?) ->Void {
-        if (node != nil) {
-            addNode(node?.leftChild);
-            arr.append(node!.entry!.key!)
-            addNode(node?.rightChild)
-
-        }
-    }
+//    var arr:[Int] = []
+//
+//    func isBST() ->Bool {
+//
+//        return self.toArray().isSorted(<)
+//    }
+//
+//    func toArray() ->Array<Int> {
+//
+//        addNode(self.root as? BinaryTreeNode)
+//        return arr
+//    }
+//
+//    func addNode(node: BinaryTreeNode?) ->Void {
+//        if (node != nil) {
+//            addNode(node?.leftChild);
+//            arr.append(node!.entry!.key!)
+//            addNode(node?.rightChild)
+//
+//        }
+//    }
 
 //    func isValidBST(node: BinaryTreeNode) ->Bool {
 //
@@ -299,7 +299,7 @@ class BinaryTreeNode: SDWTreeNode {
     }
 
     override func visit() ->Void {
-        print("\(dataObject!) ->")
+        print("\(dataObject!) ->", appendNewline: false)
     }
 
 }
@@ -324,7 +324,7 @@ class SibTree: SDWTree {
             str = str + "  ";
         }
 
-        var nodeDataStr:String = node?.dataObject as String
+        var nodeDataStr:String = node?.dataObject as! String
         var preorderFirstChild:String = ""
         var preorderNextSib:String = ""
 
